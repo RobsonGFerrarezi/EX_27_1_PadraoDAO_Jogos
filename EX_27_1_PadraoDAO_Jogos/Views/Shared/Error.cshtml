@@ -1,0 +1,20 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="centro">
+
+    <h2 class="text-danger">Ocorreu um erro durante sua requisição!</h2>
+
+
+    <img src="~/imagens/scared_fear.png" class="imgErro centro" />
+    <br />
+
+    <strong>Detalhes do erro</strong>
+    <br>
+    <code>@Model.Erro</code>
+
+</div>
+
+<link rel="stylesheet" href="~/css/MeuCss.css" />

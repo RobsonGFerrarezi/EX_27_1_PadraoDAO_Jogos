@@ -1,0 +1,36 @@
+﻿@model List<JogoViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listagem de Jogos</h2>
+
+<a href="/jogo/novoJogo" class="btn btn-primary">Cadastrar Novo Jogo</a>
+<br />
+
+<table class="table table-responsive"
+    <thead>
+        <tr>
+            <th>AÇÕES</th>
+            <th>ID</th>
+            <th>Nome do Jogo</th>
+            <th>Data de Lançamento</th>
+            <th>Categoria</th>
+            <th>Valor</th>
+        </tr>
+
+        @foreach (var jogo in Model)
+        {
+                <tr>
+                    <td>
+                        <a href="/jogo/editar?id=@jogo.Id" class="btn btn-info">Alterar</a>
+                        <a href="javascript:excluirJogo(@jogo.Id)" class="btn btn-danger">Excluir</a>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => jogo.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => jogo.Descricao)</td>
+                    <td>@Html.DisplayFor(modelItem => jogo.DataAquisicao)</td>
+                    <td>@Html.DisplayFor(modelItem => jogo.CategoriaID) - @Html.DisplayFor(modelItem => jogo.DescricaoCategoria)</td>
+                    <td>@Html.DisplayFor(modelItem => jogo.Valor)</td>
+                </tr>
+        }
+    </thead>

@@ -1,0 +1,62 @@
+﻿@model JogoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (ViewBag.Operacao == "A")
+{
+    <h2>Alteração de Jogos</h2>
+}
+else
+{
+    <h2>Cadastro de Jogos</h2>
+}
+<div class="row">
+    <div class="col-md-4">
+        <form action="Salvar" method="post">
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+            <div class="form-group">
+                <label class="control-label" for="Id">ID</label>
+                @if (ViewBag.Operacao == "I")
+                {
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                }
+                else
+                {
+                    <input asp-for="Id" class="form-control" readonly />
+                }
+            </div>
+            <br />
+
+            <div class="form-group">
+                <label class="control-label" for="Descricao">Nome do Jogo</label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"><</span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="Valor">Valor</label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="DataAquisicao">Data de Aquisição</label>
+                <input asp-for="DataAquisicao" class="form-control" />
+                <span asp-validation-for="DataAquisicao" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label for="CategoriaID" class="control-label">Categoria</label>
+                <select asp-for="CategoriaID" asp-items="ViewBag.Categorias" class="form-control"></select>
+                <span asp-validation-for="CategoriaID" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-sucess" />
+            </div>
+            <br />
+        </form>
+    </div>
+</div>
