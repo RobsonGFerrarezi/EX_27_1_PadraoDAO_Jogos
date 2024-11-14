@@ -51,7 +51,7 @@ namespace EX_27_1_PadraoDAO_Jogos.Controllers
                 listaRetorno.Add(new SelectListItem(categoria.Descricao, categoria.Id.ToString()));
             }
 
-            ViewBag.Categoria = listaRetorno;
+            ViewBag.Categorias = listaRetorno;
         }
 
         private void ValidaDados(string operacao, JogoViewModel jogo)

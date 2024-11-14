@@ -1,7 +1,7 @@
 ﻿using EX_27_1_PadraoDAO_Jogos.Models;
 using System;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace EX_27_1_PadraoDAO_Jogos.DAO
 
@@ -28,7 +28,7 @@ namespace EX_27_1_PadraoDAO_Jogos.DAO
             jogo.Id = Convert.ToInt32(registro["id"]);
             jogo.Descricao = registro["descricao"].ToString();
             jogo.CategoriaID = Convert.ToInt32(registro["categoriaId"]);
-            jogo.Valor = Convert.ToDouble(registro["valor)locacao"]);
+            jogo.Valor = Convert.ToDouble(registro["valor_locacao"]);
             jogo.DataAquisicao = Convert.ToDateTime(registro["data_aquisicao"]);
 
             if (registro.Table.Columns.Contains("DescricaoCategoria"))

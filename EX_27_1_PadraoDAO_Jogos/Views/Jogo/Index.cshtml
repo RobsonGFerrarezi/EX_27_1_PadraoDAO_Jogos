@@ -5,32 +5,31 @@
 
 <h2>Listagem de Jogos</h2>
 
-<a href="/jogo/novoJogo" class="btn btn-primary">Cadastrar Novo Jogo</a>
+<a href="/jogo/novoJogo">Cadastrar novo jogo</a>
 <br />
 
-<table class="table table-responsive"
-    <thead>
+<table class="table table-responsive">
+    <tr>
+        <th>Ações</th>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Data de lançamento</th>
+        <th>Categoria</th>
+        <th>Valor</th>
+    </tr>
+    @foreach (var jogo in Model)
+    {
         <tr>
-            <th>AÇÕES</th>
-            <th>ID</th>
-            <th>Nome do Jogo</th>
-            <th>Data de Lançamento</th>
-            <th>Categoria</th>
-            <th>Valor</th>
-        </tr>
+            <td>
+                <a href="/jogo/editar?id=@jogo.Id" class="btn btn-info">Alterar</a>
+                <a href="javascript:excluirJogo(@jogo.Id)" class="btn btn-danger">Excluir</a>
+            </td>
+            <td>@jogo.Id</td>
+            <td>@jogo.Descricao</td>
+            <td>@jogo.DataAquisicao.ToShortDateString()</td>
+            <td>@jogo.CategoriaID - @jogo.DescricaoCategoria</td>
+            <td>@jogo.Valor.ToString("0.00")</td>
 
-        @foreach (var jogo in Model)
-        {
-                <tr>
-                    <td>
-                        <a href="/jogo/editar?id=@jogo.Id" class="btn btn-info">Alterar</a>
-                        <a href="javascript:excluirJogo(@jogo.Id)" class="btn btn-danger">Excluir</a>
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => jogo.Id)</td>
-                    <td>@Html.DisplayFor(modelItem => jogo.Descricao)</td>
-                    <td>@Html.DisplayFor(modelItem => jogo.DataAquisicao)</td>
-                    <td>@Html.DisplayFor(modelItem => jogo.CategoriaID) - @Html.DisplayFor(modelItem => jogo.DescricaoCategoria)</td>
-                    <td>@Html.DisplayFor(modelItem => jogo.Valor)</td>
-                </tr>
-        }
-    </thead>
+        </tr>
+    }
+</table>

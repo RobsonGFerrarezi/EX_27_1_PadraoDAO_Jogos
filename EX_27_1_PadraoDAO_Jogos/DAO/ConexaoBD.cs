@@ -1,5 +1,4 @@
-﻿using System.Data.SqlClient;
-using System.Data;
+﻿using Microsoft.Data.SqlClient;
 
 namespace EX_27_1_PadraoDAO_Jogos.DAO
 {
@@ -7,7 +6,7 @@ namespace EX_27_1_PadraoDAO_Jogos.DAO
     {
         internal static SqlConnection GetConexao()
         {
-            string strConexao = "Data Source=LOCALHOST;Initial Catalog=AULADB;user id=sa; password=123456";
+            string strConexao = "Data Source=LOCALHOST;Initial Catalog=AULADB;user id=sa; password=123456;TrustServerCertificate=True";
             SqlConnection conexao = new SqlConnection(strConexao);
             conexao.Open();
             return conexao;

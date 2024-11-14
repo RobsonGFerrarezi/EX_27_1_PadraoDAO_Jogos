@@ -1,7 +1,7 @@
 ﻿using EX_27_1_PadraoDAO_Jogos.Models;
 using EX_27_1_PadraoDAO_Jogos.DAO;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
